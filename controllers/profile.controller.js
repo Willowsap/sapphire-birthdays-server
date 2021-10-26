@@ -1,4 +1,3 @@
-const { restart } = require('nodemon');
 const Profile = require('../models/profile.model');
 
 exports.createProfile = (req, res, next) => {
