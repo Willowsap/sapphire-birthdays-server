@@ -5,7 +5,8 @@ const profileSchema = mongoose.Schema({
   mname: { type: String, required: false },
   lname: { type: String, required: false },
   birthday: { type: String, required: true },
-  about: { type: String, required: false }
+  about: { type: String, required: false },
+  imagePath: { type: String, required: false }
 });
 
 module.exports = mongoose.model('Profile', profileSchema);
