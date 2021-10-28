@@ -1,13 +1,14 @@
 const express = require("express");
 const ProfileController = require('../controllers/profile.controller');
-const fileChecker = require('../middleware/file');
+const file = require('../middleware/file');
+const checkAuth = require('../middleware/check-auth');
 
 const router = express.Router();
 
-router.post("", fileChecker, ProfileController.createProfile);
-router.put("/:id", fileChecker, ProfileController.updateProfile);
+router.post("", checkAuth, file, ProfileController.createProfile);
+router.put("/:id", checkAuth, file, ProfileController.updateProfile);
 router.get("", ProfileController.getAllProfiles);
 router.get("/:id", ProfileController.getOneProfile)
-router.delete("/:id", ProfileController.deleteProfile);
+router.delete("/:id", checkAuth, ProfileController.deleteProfile);
 
 module.exports = router;
