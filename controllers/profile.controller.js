@@ -8,7 +8,7 @@ exports.createProfile = (req, res, next) => {
     lname: req.body.lname,
     birthday: req.body.birthday,
     about: req.body.about,
-    imagePath: url + "/images/" + req.file.filename
+    imagePath: req.file ? url + "/images/" + req.file.filename : ""
   });
   profile.save().then(createdProfile => {
     res.status(201).json({
