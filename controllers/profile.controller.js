@@ -3,6 +3,7 @@ const Profile = require('../models/profile.model');
 exports.createProfile = (req, res, next) => {
   const url = req.protocol + "://" + req.get("host");
   const profile = new Profile({
+    email: req.body.email,
     fname: req.body.fname,
     mname: req.body.mname,
     lname: req.body.lname,
@@ -28,6 +29,7 @@ exports.updateProfile = (req, res, next) => {
   const imagePath = req.imagePath ? req.body.imagePath : url + "/images/" + req.file.filename;
   const profile = new Profile({
     _id: req.body.id,
+    email: req.body.email,
     fname: req.body.fname,
     mname: req.body.mname,
     lname: req.body.lname,
